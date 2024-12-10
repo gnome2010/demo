@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Обновление заявки</title>
+</head>
+    <a href="create.html">Создание заявок</a>
+    <a href="orders.html">Список заявок</a>
+    <a href="update.html">Обновление заявки</a>
+    <a href="statistic.html">Статистика</a>
+    <iframe name="frame" style="display: none;"></iframe>
+<body>
+    <form target= "frame" action="http://127.0.0.1:8000/update" method="post">
+        <input required placeholder="Номер заявки" name="number" type="number"></br>
+        <input placeholder="Мастер" name="master" type="text"></br>
+        <input placeholder="Описание проблемы" name="description_problem" type="text"></br>
+        <input placeholder="Комментарии мастера" type="text" name="comment"></br>
+        <label name = "startDate">Статус заявки</label>
+        <select name = "status">
+            <option>новая заявка</option>
+            <option>в процессе ремонта</option>
+            <option>завершена</option>
+            <option>ожидание запчастей</option>
+        </select>
+        </br>
+        <label name = "startDate">Материалы</label>
+        <select name = "materials">
+            <option>присутствуют</option>
+            <option>требуется заказать</option>
+            <option>заказаны</option>
+            <option>не требуются</option>
+        </select>
+        </br>
+        <label name = "startDate">Запчасти</label>
+        <select name = "parts">
+            <option>присутствуют</option>
+            <option>требуется заказать</option>
+            <option>заказаны</option>
+            <option>не требуются</option>
+        </select>
+        <br>
+        <input type="submit" value="Обновить заявку" />
+    </form>
+</body>
+<script>
+    if(!sessionStorage.getItem("token"))
+        window.location.href = "\auth.html"
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Создание заявки</title>
+</head>
+    <a href="create.html">Создание заявок</a>
+    <a href="orders.html">Список заявок</a>
+    <a href="update.html">Обновление заявки</a>
+    <a href="statistic.html">Статистика</a>
+<body>
+    <iframe name="frame" style="display: none;"></iframe>
+    <form target= "frame" action="http://127.0.0.1:8000/create" method = "post"><br>
+        <input required placeholder="Номер заявки" name="number" type="number"><br>
+        <label name = "startDate">Дата заявки</label>
+        <input required placeholder="startDate" name="startDate" type="date"><br>
+        <input required placeholder="Вид оргтехники" name="orgt" type="text"><br>
+        <input required placeholder="Модель оргтехники" name="model" type="text"><br>
+        <input required placeholder="Тип неисправности" name="problem_type" type="text"><br>
+        <input required placeholder="Описание проблемы" name="description_problem" type="text"><br>
+        <input required placeholder="ФИО клиента" name="fio" type="text"><br>
+        <input required placeholder="Номер телефона" name="phone" type="text"><br>
+        <label name = "startDate">Статус заявки</label>
+        <select name = "status">
+            <option>новая заявка</option>
+            <option>в процессе ремонта</option>
+            <option>завершена</option>
+        </select>
+        <br>
+        <input type="submit" value="Создать заявку" />
+    </form>
+</body>
+<script>
+    if(!sessionStorage.getItem("token"))
+        window.location.href = "\auth.html"
+</script>
+</html>
